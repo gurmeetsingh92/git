@@ -1,0 +1,96 @@
+S3 
+cross region rep
+route 53
+ssh-keygen -R "you server hostname or ip"
+
+
+Last login: Wed Apr 25 07:13:13 on ttys000
+jjs-MacBook-Pro:~ gb$ cd downloads
+jjs-MacBook-Pro:downloads gb$ ssh -i "wordpress.pem" ec2-user@ec2-13-56-124-115.us-west-1.compute.amazonaws.com
+Last login: Wed Apr 25 18:09:42 2018 from 73.231.148.228
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-172-31-0-132 ~]$ groups
+ec2-user wheel apache
+[ec2-user@ip-172-31-0-132 ~]$ sudo groupadd www
+[ec2-user@ip-172-31-0-132 ~]$ sudo usermod -a -G www ec2-user
+[ec2-user@ip-172-31-0-132 ~]$ groups
+ec2-user wheel apache
+[ec2-user@ip-172-31-0-132 ~]$ sudo groupadd www
+groupadd: group 'www' already exists
+[ec2-user@ip-172-31-0-132 ~]$ sudo usermod -a -G www ec2-user
+[ec2-user@ip-172-31-0-132 ~]$ exit
+logout
+Connection to ec2-13-56-124-115.us-west-1.compute.amazonaws.com closed.
+jjs-MacBook-Pro:downloads gb$ clear
+
+jjs-MacBook-Pro:downloads gb$ ssh -i "wordpress.pem" ec2-user@ec2-13-56-124-115.us-west-1.compute.amazonaws.com
+Last login: Wed Apr 25 18:24:14 2018 from 73.231.148.228
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-172-31-0-132 ~]$ groups
+ec2-user wheel apache www
+[ec2-user@ip-172-31-0-132 ~]$ ls
+latest.tar.gz  latest.tar.gz.1  wordpress
+[ec2-user@ip-172-31-0-132 ~]$ sudo groupdl www
+sudo: groupdl: command not found
+
+jjs-MacBook-Pro:downloads gb$ nslookup
+> yahoo.com
+Server:		75.75.75.75
+Address:	75.75.75.75#53
+
+Non-authoritative answer:
+Name:	yahoo.com
+Address: 98.138.219.232
+Name:	yahoo.com
+Address: 72.30.35.9
+Name:	yahoo.com
+Address: 98.138.219.231
+Name:	yahoo.com
+Address: 72.30.35.10
+Name:	yahoo.com
+Address: 98.137.246.7
+Name:	yahoo.com
+Address: 98.137.246.8
+> exit
+
+jjs-MacBook-Pro:downloads gb$ set type=mx
+jjs-MacBook-Pro:downloads gb$ set type=mx yahoo.com
+jjs-MacBook-Pro:downloads gb$ set type=mx yahoo.com
+jjs-MacBook-Pro:downloads gb$ set type=mx
+jjs-MacBook-Pro:downloads gb$ clear
+
+jjs-MacBook-Pro:downloads gb$ cd
+jjs-MacBook-Pro:~ gb$ set type=mx
+jjs-MacBook-Pro:~ gb$ nslookup
+> set type=mx
+> google.com
+Server:		75.75.75.75
+Address:	75.75.75.75#53
+
+Non-authoritative answer:
+google.com	mail exchanger = 10 aspmx.l.google.com.
+google.com	mail exchanger = 30 alt2.aspmx.l.google.com.
+google.com	mail exchanger = 50 alt4.aspmx.l.google.com.
+google.com	mail exchanger = 40 alt3.aspmx.l.google.com.
+google.com	mail exchanger = 20 alt1.aspmx.l.google.com.
+
+Authoritative answers can be found from:
+aspmx.l.google.com	internet address = 108.177.98.26
+aspmx.l.google.com	has AAAA address 2607:f8b0:400e:c03::1a
+alt2.aspmx.l.google.com	internet address = 64.233.177.26
+alt2.aspmx.l.google.com	has AAAA address 2607:f8b0:4002:c08::1a
+alt4.aspmx.l.google.com	internet address = 74.125.141.26
+alt3.aspmx.l.google.com	has AAAA address 2607:f8b0:400d:c0e::1b
+alt1.aspmx.l.google.com	internet address = 209.85.145.27
+alt1.aspmx.l.google.com	has AAAA address 2607:f8b0:4001:c1e::1b
+> 
